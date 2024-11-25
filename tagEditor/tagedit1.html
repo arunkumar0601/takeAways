@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .tag-editor {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question-parts {
+            margin-bottom: 20px;
+        }
+        .selected-tags {
+            margin-top: 20px;
+        }
+        .tags-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 50px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .subjects-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .subject-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .subject-btn:hover {
+            background-color: #218838;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dok-section {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tag-editor">
+    <h2>Specify Tags and/or DOK</h2>
+    <div class="flex-container">
+        <div class="tags-section">
+            <h4>Free Form Tags:</h4>
+            <textarea id="freeFormTags" rows="4" cols="30" placeholder="Enter your tags here..."></textarea>
+        </div>
+        <div class="dok-section">
+            <label for="dokSelect">Select DOK Level:</label>
+            <select id="dokSelect">
+                <option value="dok1">DOK Level 1</option>
+                <option value="dok2">DOK Level 2</option>
+                <option value="dok3">DOK Level 3</option>
+                <option value="dok4">DOK Level 4</option>
+            </select>
+        </div>
+    </div>
+    <div class="question-parts">
+        <label for="partA">Select Question Part A:</label>
+        <select id="partA">
+            <option value="partA1">Part A 1</option>
+            <option value="partA2">Part A 2</option>
+            <!-- ... other options ... -->
+        </select>
+        
+        <label for="partB">Select Question Part B:</label>
+        <select id="partB">
+            <option value="partB1">Part B 1</option>
+            <option value="partB2">Part B 2</option>
+            <!-- ... other options ... -->
+        </select>
+    </div>
+    
+    <h3>Selected Tags</h3>
+    <div class="selected-tags">
+        <div class="partA-tags">
+            <h4>Part A Tags:</h4>
+            <div id="partASelectedTags" class="tags-box"></div>
+        </div>
+        <div class="partB-tags">
+            <h4>Part B Tags:</h4>
+            <div id="partBSelectedTags" class="tags-box"></div>
+        </div>
+    </div>
+
+    <h3>Subjects</h3>
+    <button id="showSubjectsBtn">Alabama Standards</button>
+    <button id="showMissouriSubjectsBtn">Missouri Standards</button>
+    <div id="subjectsBox" class="tags-box" style="display: none;">
+        <h4>Available Subjects:</h4>
+        <div class="subjects-buttons">
+            <button class="subject-btn">Math</button>
+            <button class="subject-btn">ELA</button>
+            <button class="subject-btn">Social Studies</button>
+            <button class="subject-btn">Other Subject 1</button>
+            <button class="subject-btn">Other Subject 2</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('showSubjectsBtn').addEventListener('click', function() {
+        var subjectsBox = document.getElementById('subjectsBox');
+        subjectsBox.style.display = subjectsBox.style.display === 'none' ? 'block' : 'none';
+    });
+    document.getElementById('showMissouriSubjectsBtn').addEventListener('click', function() {
+        var subjectsBox = document.getElementById('subjectsBox');
+        subjectsBox.style.display = subjectsBox.style.display === 'none' ? 'block' : 'none';
+    });
+</script>
+
+</body>
+</html>

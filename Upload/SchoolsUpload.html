@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Reader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e9ecef;
+        margin: 0;
+        padding: 20px;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    #csvFileInput {
+        display: block;
+        margin: 20px auto;
+        padding: 12px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        transition: border-color 0.3s;
+    }
+
+    #csvFileInput:focus {
+        border-color: #0056b3;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 25px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #218838;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th, table td {
+        border: 1px solid #dee2e6;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <h1>CSV File Reader</h1>
+        <input type="file" id="csvFileInput" accept=".csv" />
+        <button id="loadButton">Load Data</button>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>School ID</th>
+                    <th>School Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById('loadButton').addEventListener('click', () => {
+    const input = document.getElementById('csvFileInput');
+    const file = input.files[0];
+
+    if (!file) {
+        alert('Please select a CSV file!');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const text = e.target.result;
+        const rows = text.split('\n').slice(1); // Skip the header row
+        const tableBody = document.querySelector('#dataTable tbody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        rows.forEach(row => {
+            const cols = row.split(',');
+            if (cols.length === 2) { // Ensure correct column count
+                const tr = document.createElement('tr');
+                cols.forEach(col => {
+                    const td = document.createElement('td');
+                    td.textContent = col.trim();
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            }
+        });
+    };
+
+    reader.readAsText(file);
+});
+
+    </script>
+</body>
+</html>

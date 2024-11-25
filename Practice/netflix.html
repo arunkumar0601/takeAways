@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+        }
+
+        body {
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/93da5c27-be66-427c-8b72-5cb39d275279/94eb5ad7-10d8-4cca-bf45-ac52e0a052c0/US-en-20240226-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: multiply;
+            color: #333;
+        }
+
+        .header {
+            padding: 24px 48px;
+            position: relative;
+            border-bottom: 1px solid transparent;
+            background: linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent);
+        }
+
+        .netflix-logo {
+            height: 45px;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 60px 68px 40px;
+            background-color: white;
+            border-radius: 4px;
+            margin-top: 100px;
+            box-sizing: border-box;
+            min-height: 515px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            height: 60px;
+            padding: 24px 16px 4px;
+            border: 1px solid #8c8c8c;
+            border-radius: 4px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            background: transparent;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #0071eb;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #8c8c8c;
+            transition: all 0.15s ease-out;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: 8px;
+            font-size: 11px;
+            transform: translateY(0);
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 19px 16px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 24px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 40px;
+        }
+
+        .signup-btn:hover {
+            background-color: #f40612;
+        }
+
+        .helper-text {
+            color: #b3b3b3;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .error-message {
+            color: #e87c03;
+            font-size: 13px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        input:invalid:not(:placeholder-shown) {
+            border-color: #e87c03;
+        }
+
+        input:invalid:not(:placeholder-shown) ~ .error-message {
+            display: block;
+        }
+
+        .checkbox {
+            width: auto;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .checkbox-label {
+            position: static;
+            transform: none;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .footer {
+            padding: 30px 0;
+            color: #737373;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-top {
+            margin-bottom: 30px;
+        }
+
+        .footer a {
+            color: #737373;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .footer-links li {
+            font-size: 13px;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .form-group:last-of-type {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://assets.nflxext.com/us/ffe/siteui/common/icons/nfLogo.png" alt="Netflix" class="netflix-logo">
+    </header>
+
+    <div class="container">
+        <h1>Create a password to start your membership</h1>
+        <form>
+            <div class="form-group">
+                <input type="email" id="email" placeholder=" " required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                <label for="email">Email address</label>
+                <div class="error-message">Please enter a valid email address.</div>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder=" " required minlength="6" maxlength="60">
+                <label for="password">Add a password</label>
+                <div class="error-message">Your password must contain between 6 and 60 characters.</div>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="emailPreference" class="checkbox">
+                <label for="emailPreference" class="checkbox-label">Please do not email me Netflix special offers.</label>
+            </div>
+            <button type="submit" class="signup-btn">Next</button>
+        </form>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-top">Questions? Call <a href="tel:1-844-505-2993">1-844-505-2993</a></p>
+            <ul class="footer-links">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">Netflix Shop</a></li>
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Cookie Preferences</a></li>
+                <li><a href="#">Corporate Information</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

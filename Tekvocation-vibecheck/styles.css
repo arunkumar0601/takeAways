@@ -1,0 +1,281 @@
+:root {
+    --netflix-red: #e50914;
+    --netflix-red-hover: #f40612;
+    --netflix-dark: #141414;
+    --error-color: #e87c03;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif;
+    background-color: #000;
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+    min-height: 100vh;
+    background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,rgba(0,0,0,.5) 60%,rgba(0,0,0,.8)),
+                      url('https://assets.nflxext.com/ffe/siteui/vlv3/9c5457b8-9ab0-4a04-9fc1-e608d5670f1a/710d74e0-7158-408e-8d9b-23c219dee5df/IN-en-20210719-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header Styles */
+header {
+    padding: 24px 48px;
+}
+
+.netflix-logo {
+    height: 45px;
+}
+
+.svg-icon-netflix-logo {
+    fill: #e50914;
+    height: 45px;
+    width: 167px;
+}
+
+/* Main Content Styles */
+.login-body {
+    padding: 0 5%;
+    min-height: calc(100vh - 236px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content {
+    background-color: rgba(0,0,0,.75);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 515px;
+    padding: 60px 68px 40px;
+    width: 450px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+/* Form Styles */
+.form-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.text-field {
+    background: #333;
+    border-radius: 4px;
+    border: 0;
+    color: #fff;
+    height: 50px;
+    padding: 16px 20px 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+.text-field:focus {
+    outline: none;
+    background: #454545;
+}
+
+.input-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    color: #8c8c8c;
+    font-size: 16px;
+    transition: all 0.15s ease;
+    pointer-events: none;
+}
+
+.text-field:focus + .input-label,
+.text-field:not(:placeholder-shown) + .input-label {
+    font-size: 11px;
+    top: 7px;
+}
+
+.login-button {
+    background: var(--netflix-red);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 24px 0 12px;
+    padding: 16px;
+    width: 100%;
+}
+
+.login-button:hover {
+    background: var(--netflix-red-hover);
+}
+
+/* Login Help Section */
+.login-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 13px;
+}
+
+.remember-me input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox {
+    background: #737373;
+    border-radius: 2px;
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.check {
+    display: none;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 1px;
+}
+
+input[type="checkbox"]:checked + label .checkbox .check {
+    display: block;
+}
+
+.help-link {
+    color: #b3b3b3;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+/* Sign up Section */
+.login-signup {
+    color: #737373;
+    font-size: 16px;
+    margin-top: 16px;
+}
+
+.login-signup a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-signup a:hover {
+    text-decoration: underline;
+}
+
+/* reCAPTCHA Section */
+.recaptcha-terms {
+    color: #8c8c8c;
+    font-size: 13px;
+    margin-top: 11px;
+}
+
+.learn-more {
+    background: none;
+    border: none;
+    color: #0071eb;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 0;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}
+
+.recaptcha-terms-content {
+    margin-top: 10px;
+}
+
+.recaptcha-terms-content a {
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.recaptcha-terms-content a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgba(0,0,0,.75);
+    color: #737373;
+    margin-top: 80px;
+    padding: 30px 0;
+}
+
+.footer-content {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 48px;
+}
+
+.footer-top {
+    margin-bottom: 30px;
+}
+
+.footer-top a {
+    color: #737373;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 13px;
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.footer-links a {
+    color: #737373;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.language-select select {
+    background: transparent;
+    border: 1px solid #333;
+    color: #737373;
+    padding: 12px 26px 12px 50px;
+    font-size: 13px;
+} 
